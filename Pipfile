@@ -4,11 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
+autopep8 = "*"
 
 [packages]
 django = "*"
 djangorestframework = "*"
 django-rest-knox = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"
