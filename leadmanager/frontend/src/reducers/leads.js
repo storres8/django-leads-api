@@ -1,10 +1,11 @@
 import { GET_LEADS } from "../actions/types";
 
+// Leads Reducer
+
 const initialState = {
   leads: []
 };
 
-// Leads Reducer
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_LEADS:
