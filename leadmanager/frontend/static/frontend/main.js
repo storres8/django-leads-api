@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./leadmanager/frontend/src/actions/types.js":
+/*!***************************************************!*\
+  !*** ./leadmanager/frontend/src/actions/types.js ***!
+  \***************************************************/
+/*! exports provided: GET_LEADS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"GET_LEADS\", function() { return GET_LEADS; });\nvar GET_LEADS = \"GET_LEADS\";\n\n//# sourceURL=webpack:///./leadmanager/frontend/src/actions/types.js?");
+
+/***/ }),
+
 /***/ "./leadmanager/frontend/src/components/App.js":
 /*!****************************************************!*\
   !*** ./leadmanager/frontend/src/components/App.js ***!
@@ -166,7 +178,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _leads__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./leads */ \"./leadmanager/frontend/src/reducers/leads.js\");\n/* harmony import */ var _leads__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_leads__WEBPACK_IMPORTED_MODULE_1__);\n// this is the file the will house the root reducer\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  leadReducer: _leads__WEBPACK_IMPORTED_MODULE_1___default.a\n}));\n\n//# sourceURL=webpack:///./leadmanager/frontend/src/reducers/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _leads__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./leads */ \"./leadmanager/frontend/src/reducers/leads.js\");\n// this is the file the will house the root reducer\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  leadReducer: _leads__WEBPACK_IMPORTED_MODULE_1__[\"default\"]\n}));\n\n//# sourceURL=webpack:///./leadmanager/frontend/src/reducers/index.js?");
 
 /***/ }),
 
@@ -174,10 +186,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redu
 /*!****************************************************!*\
   !*** ./leadmanager/frontend/src/reducers/leads.js ***!
   \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("\n\n//# sourceURL=webpack:///./leadmanager/frontend/src/reducers/leads.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/types */ \"./leadmanager/frontend/src/actions/types.js\");\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\nvar initialState = {\n  leads: []\n}; // Leads Reducer\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"GET_LEADS\"]:\n      return _objectSpread({}, state, {\n        leads: action.payload\n      });\n\n    default:\n      return state;\n  }\n});\n\n//# sourceURL=webpack:///./leadmanager/frontend/src/reducers/leads.js?");
 
 /***/ }),
 
