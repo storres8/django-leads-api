@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import store from "../store";
+import Alerts from "../components/layout/Alerts";
 
 // Alert Optoins
 const alertOptions = {
@@ -20,6 +21,7 @@ class App extends Component {
         <AlertProvider template={AlertTemplate} {...alertOptions}>
           <Fragment>
             <Header />
+            <Alerts />
             <div className="container">
               <Dashboard />
             </div>
