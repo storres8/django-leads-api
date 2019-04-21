@@ -1,16 +1,14 @@
-import { GET_ERRORS } from "../actions/types";
+import { CREATE_MESSAGES } from "../actions/types";
 
 let initialState = {
-  msg: {},
-  status: null
+  message: ""
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case GET_ERRORS:
+    case CREATE_MESSAGES:
       return {
-        msg: action.payload.msg,
-        status: action.payload.status
+        message: action.payload
       };
     default:
       return state;

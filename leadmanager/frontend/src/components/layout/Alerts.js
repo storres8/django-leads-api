@@ -9,7 +9,7 @@ class Alerts extends Component {
   };
 
   componentDidUpdate(prevProps) {
-    const { error, alert } = this.props;
+    const { error, alert, message } = this.props;
 
     if (error !== prevProps.error) {
       if (error.msg.name) {
@@ -22,6 +22,10 @@ class Alerts extends Component {
         alert.error(`Message: ${error.msg.message.join()}`);
       }
     }
+
+    if (message !== prevProps.message) {
+      alert.success(`${message.message}`);
+    }
   }
 
   render() {
@@ -31,7 +35,8 @@ class Alerts extends Component {
 
 const mapStateToProps = state => {
   return {
-    error: state.errorsReducer
+    error: state.errorsReducer,
+    message: state.messagesReducer
   };
 };
 
