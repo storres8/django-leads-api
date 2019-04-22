@@ -16,7 +16,16 @@ export const getLeads = () => dispatch => {
         payload: resp.data
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      const errors = {
+        msg: err.response.data,
+        status: err.response.status
+      };
+      dispatch({
+        type: GET_ERRORS,
+        payload: errors
+      });
+    });
 };
 
 // Delete Leads Action
