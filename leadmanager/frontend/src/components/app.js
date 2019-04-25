@@ -14,6 +14,9 @@ import {
   Redirect
 } from "react-router-dom";
 
+import Login from "../components/accounts/Login";
+import Register from "../components/accounts/Register";
+
 // Alert Optoins
 const alertOptions = {
   timeout: 3000,
@@ -32,6 +35,8 @@ class App extends Component {
               <div className="container">
                 <Switch>
                   <Route exact path="/" component={Dashboard} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
                 </Switch>
               </div>
             </Fragment>
