@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b65d240cfb146e85c66eb087ec74166e0d948f7e542c1cbf63740229d512189b"
+            "sha256": "b8ae3a9555eae0ccf6a73d31dbbae8376a07cddbe0c4e691b76fc6eb32166104"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -90,12 +90,12 @@
         },
         "django-rest-knox": {
             "hashes": [
-                "sha256:63c36a5aa3d273d821739c4716aacfadf00c51a50d7b68aed54a67a1209004dc",
-                "sha256:6f4126df24b6f142c1fde1c9207f6e0f4cd604cc4dc7a7fb66fab9361c4ccc77",
-                "sha256:a4ce42ba19fe6c39f72342290d2ac27721c075deefe99cb3b71e9265cdfa21ee"
+                "sha256:097dc1b702cff7442b779ea1fdde4a543567bdd4902bd12ddcee8b9b09c50c9a",
+                "sha256:84d7180cce67ef385cf6922b2045e68074e352e889cf02c0aafb3f8a02e371df",
+                "sha256:9c78c0aa402efa2dc3f0d3ee1794942d8ca44fde3798a3cb2f031fd8051f2ad7"
             ],
             "index": "pypi",
-            "version": "==3.6.0"
+            "version": "==4.0.1"
         },
         "djangorestframework": {
             "hashes": [
@@ -127,13 +127,6 @@
                 "sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
             ],
             "version": "==2.19"
-        },
-        "pyopenssl": {
-            "hashes": [
-                "sha256:aeca66338f6de19d1aa46ed634c3b9ae519a64b458f8468aec688e7e3c20f200",
-                "sha256:c727930ad54b10fc157015014b666f2d8b41f70c0d03e83ab67624fd3dd5d1e6"
-            ],
-            "version": "==19.0.0"
         },
         "pytz": {
             "hashes": [
