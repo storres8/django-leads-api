@@ -16,6 +16,7 @@ import {
 
 import Login from "../components/accounts/Login";
 import Register from "../components/accounts/Register";
+import PrivateRoute from "./common/PrivateRoute";
 
 // Alert Optoins
 const alertOptions = {
@@ -34,7 +35,7 @@ class App extends Component {
               <Alerts />
               <div className="container">
                 <Switch>
-                  <Route exact path="/" component={Dashboard} />
+                  <PrivateRoute exact path="/" component={Dashboard} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
                 </Switch>
