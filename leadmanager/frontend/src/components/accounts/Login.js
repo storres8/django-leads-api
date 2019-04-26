@@ -1,18 +1,27 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { logInUser } from "../../actions/auth";
 
 class Login extends Component {
+  static propTypes = {
+    logInUser: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool
+  };
+
   state = {
     username: "",
     password: ""
   };
 
   onSubmit = e => {
+    const { username, password } = this.state;
     e.preventDefault();
-    console.log("submit");
+    this.props.logInUser(username, password);
   };
 
-  onChange = () => {
+  onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -20,18 +29,22 @@ class Login extends Component {
 
   render() {
     const { username, password } = this.state;
+
+    if (this.props.isAuthenticated) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="col-md-6 m-auto">
         <div className="card card-body mt-5">
           <h2 className="text-center">Login</h2>
-          <form onSubmit={() => this.onSubmit()}>
+          <form onSubmit={e => this.onSubmit(e)}>
             <div className="form-group">
               <label>Username</label>
               <input
                 type="text"
                 className="form-control"
                 name="username"
-                onChange={() => this.onChange()}
+                onChange={e => this.onChange(e)}
                 value={username}
               />
             </div>
@@ -41,7 +54,7 @@ class Login extends Component {
                 type="password"
                 className="form-control"
                 name="password"
-                onChange={this.onChange}
+                onChange={e => this.onChange(e)}
                 value={password}
               />
             </div>
@@ -59,4 +72,18 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.authReducer.isAuthenticated
+  };
+};
+
+const actionCreators = {
+  logInUser
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Login);
