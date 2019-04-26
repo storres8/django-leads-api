@@ -17,6 +17,7 @@ import {
 import Login from "../components/accounts/Login";
 import Register from "../components/accounts/Register";
 import PrivateRoute from "./common/PrivateRoute";
+import { loadUser } from "../actions/auth";
 
 // Alert Optoins
 const alertOptions = {
@@ -25,6 +26,10 @@ const alertOptions = {
 };
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
+
   render() {
     return (
       <Provider store={store}>
