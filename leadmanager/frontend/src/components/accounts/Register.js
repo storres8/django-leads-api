@@ -14,7 +14,7 @@ class Register extends Component {
     console.log("submit");
   };
 
-  onChange = () => {
+  onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -26,14 +26,14 @@ class Register extends Component {
       <div className="col-md-6 m-auto">
         <div className="card card-body mt-5">
           <h2 className="text-center">Register</h2>
-          <form onSubmit={() => this.onSubmit()}>
+          <form onSubmit={e => this.onSubmit(e)}>
             <div className="form-group">
               <label>Username</label>
               <input
                 type="text"
                 className="form-control"
                 name="username"
-                onChange={() => this.onChange()}
+                onChange={e => this.onChange(e)}
                 value={username}
               />
             </div>
@@ -43,7 +43,7 @@ class Register extends Component {
                 type="email"
                 className="form-control"
                 name="email"
-                onChange={this.onChange}
+                onChange={e => this.onChange(e)}
                 value={email}
               />
             </div>
@@ -53,7 +53,7 @@ class Register extends Component {
                 type="password"
                 className="form-control"
                 name="password"
-                onChange={this.onChange}
+                onChange={e => this.onChange(e)}
                 value={password}
               />
             </div>
@@ -63,7 +63,7 @@ class Register extends Component {
                 type="password"
                 className="form-control"
                 name="password2"
-                onChange={this.onChange}
+                onChange={e => this.onChange(e)}
                 value={password2}
               />
             </div>

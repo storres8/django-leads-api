@@ -5,7 +5,8 @@ import {
   AUTH_ERROR,
   GET_ERRORS,
   LOGIN_SUCCESS,
-  LOGIN_FAIL
+  LOGIN_FAIL,
+  LOGOUT_SUCCESS
 } from "./types";
 
 // Action to check for a token and if true load that user
@@ -83,6 +84,40 @@ export const logInUser = (username, password) => dispatch => {
       });
       dispatch({
         type: LOGIN_FAIL
+      });
+    });
+};
+
+// Logout user
+export const logOutUser = () => (dispatch, getState) => {
+  const token = getState().authReducer.token;
+
+  // config object that sets the headers for a request sent with axios
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+
+  if (token) {
+    config.headers["Authorization"] = `Token ${token}`;
+  }
+
+  axios
+    .post("/api/auth/logout", null, config)
+    .then(resp => {
+      dispatch({
+        type: LOGOUT_SUCCESS
+      });
+    })
+    .catch(err => {
+      const errors = {
+        msg: err.response.data,
+        status: err.response.status
+      };
+      dispatch({
+        type: GET_ERRORS,
+        payload: errors
       });
     });
 };
