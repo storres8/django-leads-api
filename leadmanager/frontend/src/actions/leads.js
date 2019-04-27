@@ -6,10 +6,12 @@ import { GET_ERRORS } from "./types";
 // Message Types
 import { CREATE_MESSAGES } from "./types";
 
+import { tokenConfig } from "./auth";
+
 // Get Leads Action
-export const getLeads = () => dispatch => {
+export const getLeads = () => (dispatch, getState) => {
   axios
-    .get("/api/leads/")
+    .get("/api/leads/", tokenConfig(getState))
     .then(resp => {
       dispatch({
         type: GET_LEADS,
@@ -29,9 +31,9 @@ export const getLeads = () => dispatch => {
 };
 
 // Delete Leads Action
-export const deleteLeads = id => dispatch => {
+export const deleteLeads = id => (dispatch, getState) => {
   axios
-    .delete(`/api/leads/${id}/`)
+    .delete(`/api/leads/${id}/`, tokenConfig(getState))
     .then(resp => {
       dispatch({
         type: DELETE_LEAD,
@@ -46,9 +48,9 @@ export const deleteLeads = id => dispatch => {
 };
 
 // Add New Lead
-export const addLead = newLead => dispatch => {
+export const addLead = newLead => (dispatch, getState) => {
   axios
-    .post("/api/leads/", newLead)
+    .post("/api/leads/", newLead, tokenConfig(getState))
     .then(resp => {
       dispatch({
         type: ADD_LEAD,
