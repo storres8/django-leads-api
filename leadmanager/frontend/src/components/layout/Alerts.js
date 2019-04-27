@@ -23,9 +23,9 @@ class Alerts extends Component {
       }
     }
 
-    if (message !== prevProps.message) {
-      alert.success(`${message.message}`);
-    }
+    // if (message !== prevProps.message) {
+    //   alert.success(`${message.message}`);
+    // }
   }
 
   render() {

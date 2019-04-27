@@ -1,17 +1,40 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { register } from "../../actions/auth";
+import { createMessage } from "../../actions/messages";
+import classnames from "classnames";
 
 class Register extends Component {
   state = {
     username: "",
     email: "",
     password: "",
-    password2: ""
+    password2: "",
+    pError: null
+  };
+
+  static propTypes = {
+    register: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool
   };
 
   onSubmit = e => {
     e.preventDefault();
-    console.log("submit");
+    const { username, email, password, password2 } = this.state;
+    if (password !== password2) {
+      this.setState({
+        pError: "Passwords do not match"
+      });
+    } else {
+      const newUser = {
+        username: username,
+        email: email,
+        password: password
+      };
+      this.props.register(newUser);
+    }
   };
 
   onChange = e => {
@@ -21,7 +44,15 @@ class Register extends Component {
   };
 
   render() {
+    if (this.props.isAuthenticated) {
+      return <Redirect to="/" />;
+    }
+
     const { username, email, password, password2 } = this.state;
+    let passwordClass = classnames({
+      "form-control": true,
+      "is-invalid": this.state.pError !== null
+    });
     return (
       <div className="col-md-6 m-auto">
         <div className="card card-body mt-5">
@@ -61,11 +92,12 @@ class Register extends Component {
               <label>Confirm Password</label>
               <input
                 type="password"
-                className="form-control"
+                className={passwordClass}
                 name="password2"
                 onChange={e => this.onChange(e)}
                 value={password2}
               />
+              <div className="invalid-feedback">Passwords do not match</div>
             </div>
             <div className="form-group">
               <button type="submit" className="btn btn-primary">
@@ -81,4 +113,20 @@ class Register extends Component {
     );
   }
 }
-export default Register;
+
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.authReducer.isAuthenticated,
+    message: state.messageReducer
+  };
+};
+
+const actionCreators = {
+  register,
+  createMessage
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Register);
