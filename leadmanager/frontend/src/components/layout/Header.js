@@ -44,7 +44,7 @@ class Header extends Component {
       </ul>
     );
     return (
-      <nav className="navbar navbar-expand-sm navbar-light bg-light">
+      <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
         <div className="container">
           <button
             className="navbar-toggler"

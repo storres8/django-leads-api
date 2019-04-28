@@ -35,17 +35,17 @@ class App extends Component {
       <Provider store={store}>
         <AlertProvider template={AlertTemplate} {...alertOptions}>
           <Router>
-            <Fragment>
+            <div>
               <Header />
-              <Alerts />
+            </div>
+            <Alerts />
+            <Switch>
+              <PrivateRoute exact path="/" component={Dashboard} />
               <div className="container">
-                <Switch>
-                  <PrivateRoute exact path="/" component={Dashboard} />
-                  <Route exact path="/register" component={Register} />
-                  <Route exact path="/login" component={Login} />
-                </Switch>
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/login" component={Login} />
               </div>
-            </Fragment>
+            </Switch>
           </Router>
         </AlertProvider>
       </Provider>
