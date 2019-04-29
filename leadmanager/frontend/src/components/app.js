@@ -35,9 +35,7 @@ class App extends Component {
       <Provider store={store}>
         <AlertProvider template={AlertTemplate} {...alertOptions}>
           <Router>
-            <div>
-              <Header />
-            </div>
+            <Header />
             <Alerts />
             <Switch>
               <PrivateRoute exact path="/" component={Dashboard} />

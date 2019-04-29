@@ -12,7 +12,8 @@ class Login extends Component {
 
   state = {
     username: "",
-    password: ""
+    password: "",
+    error: ""
   };
 
   onSubmit = e => {
@@ -33,6 +34,8 @@ class Login extends Component {
     if (this.props.isAuthenticated) {
       return <Redirect to="/" />;
     }
+
+    console.log(this.props);
     return (
       <div className="login">
         <div className="col-md-6 m-auto">
@@ -79,7 +82,8 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.authReducer.isAuthenticated
+    isAuthenticated: state.authReducer.isAuthenticated,
+    errors: state.errorsReducer
   };
 };
 
