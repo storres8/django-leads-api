@@ -34,45 +34,45 @@ class Login extends Component {
     if (this.props.isAuthenticated) {
       return <Redirect to="/" />;
     }
-
-    console.log(this.props);
     return (
-      <div className="login">
-        <div className="col-md-6 m-auto">
-          <div className="card card-body mt-5">
-            <h2 className="text-center" id="loginTitle">
-              Login
-            </h2>
-            <form onSubmit={e => this.onSubmit(e)}>
-              <div className="form-group">
-                <label>Username</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="username"
-                  onChange={e => this.onChange(e)}
-                  value={username}
-                />
-              </div>
-              <div className="form-group">
-                <label>Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  onChange={e => this.onChange(e)}
-                  value={password}
-                />
-              </div>
-              <div className="form-group">
-                <button type="submit" className="btn btn-primary">
-                  Login
-                </button>
-              </div>
-              <p>
-                Don't have an account? <Link to="/register">Register</Link>
-              </p>
-            </form>
+      <div className="container">
+        <div className="login">
+          <div className="col-md-6 m-auto">
+            <div className="card card-body mt-5">
+              <h2 className="text-center" id="loginTitle">
+                Login
+              </h2>
+              <form onSubmit={e => this.onSubmit(e)}>
+                <div className="form-group">
+                  <label>Username</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="username"
+                    onChange={e => this.onChange(e)}
+                    value={username}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    name="password"
+                    onChange={e => this.onChange(e)}
+                    value={password}
+                  />
+                </div>
+                <div className="form-group">
+                  <button type="submit" className="btn btn-primary">
+                    Login
+                  </button>
+                </div>
+                <p>
+                  Don't have an account? <Link to="/register">Register</Link>
+                </p>
+              </form>
+            </div>
           </div>
         </div>
       </div>
