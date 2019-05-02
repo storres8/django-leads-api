@@ -5,6 +5,8 @@ import { GET_LEADS, DELETE_LEAD, ADD_LEAD } from "./types";
 import { GET_ERRORS } from "./types";
 // Message Types
 import { CREATE_MESSAGES } from "./types";
+// edit leads
+import { EDIT_LEAD } from "./types";
 
 import { tokenConfig } from "./auth";
 

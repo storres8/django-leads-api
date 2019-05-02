@@ -18,13 +18,21 @@ class Leads extends Component {
     this.props.deleteLeads(id);
   };
 
+  handleEdit = () => {
+    console.log("editing...");
+  };
+
   render() {
     return (
       <div>
-        <h1>Leads</h1>
-        <table className="table table-striped">
+        <div className="row">
+          <div className=" mx-auto">
+            <h1 className="text-center">Your Current Leads</h1>
+          </div>
+        </div>
+        <table className="table table-hover">
           <thead>
-            <tr>
+            <tr className="table-success">
               <th scope="col">ID</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
@@ -35,17 +43,23 @@ class Leads extends Component {
           <tbody>
             {this.props.leads.map(lead => {
               return (
-                <tr key={lead.id}>
+                <tr key={lead.id} className="table-light">
                   <td>{lead.id}</td>
                   <td>{lead.name}</td>
                   <td>{lead.email}</td>
                   <td>{lead.message}</td>
                   <td>
                     <button
-                      className="btn btn-danger btn-sm"
+                      className="btn btn-outline-danger btn-sm"
                       onClick={() => this.handleDelete(lead.id)}
                     >
                       Delete
+                    </button>
+                    <button
+                      className="ml-2 btn btn-outline-info btn-sm"
+                      onClick={() => this.handleEdit()}
+                    >
+                      Edit
                     </button>
                   </td>
                 </tr>
