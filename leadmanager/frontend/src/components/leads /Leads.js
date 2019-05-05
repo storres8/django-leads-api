@@ -32,7 +32,7 @@ class Leads extends Component {
     };
     let styles = {
       maxHeight: "63px",
-      width: "380px",
+      width: "580px",
       // border: "1px solid #ccc",
       // overflow: "scroll",
       overflowY: "scroll"
