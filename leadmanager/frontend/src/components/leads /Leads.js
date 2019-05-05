@@ -24,11 +24,11 @@ class Leads extends Component {
 
   render() {
     let styles = {
-      "max-height": "63px",
+      maxHeight: "63px",
       width: "380px",
       // border: "1px solid #ccc",
       // overflow: "scroll",
-      "overflow-y": "scroll"
+      overflowY: "scroll"
     };
     return (
       <div>
