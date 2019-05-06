@@ -26,24 +26,20 @@ class Leads extends Component {
     let tableStyles = {
       maxHeight: "620px",
       width: "inherit",
-      // border: "1px solid #ccc",
-      // overflow: "scroll",
       overflowY: "scroll"
     };
     let styles = {
       maxHeight: "63px",
       width: "580px",
-      // border: "1px solid #ccc",
-      // overflow: "scroll",
       overflowY: "scroll"
     };
 
     return (
       <div>
         <div className="row">
-          <div className=" mx-auto">
+          {/* <div className=" mx-auto">
             <h1 className="text-center">Current Leads</h1>
-          </div>
+          </div> */}
         </div>
         <div className="table" style={tableStyles}>
           <table className="table table-hover">
